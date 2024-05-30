@@ -1,5 +1,5 @@
 <script>
-import { searchMovies } from '../data/store.js';
+import { searchMovies, searchTv } from '../data/store.js';
 import store from '../data/store.js';
 export default {
   data() {
@@ -13,6 +13,7 @@ export default {
       this.store.searched = this.search;
       console.log('ur searched movies is: ' + this.store.searched);
       searchMovies();
+      searchTv();
     },
   },
   mounted() {},

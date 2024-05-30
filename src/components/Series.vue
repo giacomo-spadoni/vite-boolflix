@@ -1,6 +1,6 @@
 <script>
 export default {
-  props: ['dataM'],
+  props: ['dataS'],
   data() {
     return {};
   },
@@ -9,22 +9,24 @@ export default {
       return new URL(`../assets/${nomefile}`, import.meta.url);
     },
     showImage() {
-      if (this.dataM.poster_path) {
-        return 'https://image.tmdb.org/t/p/w200' + this.dataM.poster_path;
+      if (this.dataS.poster_path) {
+        return 'https://image.tmdb.org/t/p/w200' + this.dataS.poster_path;
       } else {
         return 'https://c7.alamy.com/compit/mfexxe/foto-non-disponibile-icona-isolati-su-sfondo-bianco-illustrazione-vettoriale-mfexxe.jpg';
       }
     },
   },
-  mounted() {},
+  mounted() {
+    console.log();
+  },
 };
 </script>
 
 <template>
   <div class="card">
-    <div>{{ dataM.title }}</div>
+    <div>{{ dataS.name }}</div>
     <img width="200px" :src="showImage()" alt="" />
-    <div>{{ dataM.id }}</div>
+    <div>{{ dataS.id }}</div>
   </div>
 </template>
 
