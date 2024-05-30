@@ -1,16 +1,27 @@
 <script>
+import { searchMovies } from '../data/store.js';
+import store from '../data/store.js';
 export default {
   data() {
-    return {};
+    return {
+      store,
+      search: '',
+    };
   },
-  method: {},
+  methods: {
+    searchMovies() {
+      this.store.searched = this.search;
+      console.log('ur searched movies is: ' + this.store.searched);
+      searchMovies();
+    },
+  },
   mounted() {},
 };
 </script>
 
 <template>
-  <input type="text" />
-  <button>cerca</button>
+  <input v-model="search" type="text" />
+  <button @click="searchMovies()">cerca</button>
 </template>
 
 <style scoped></style>

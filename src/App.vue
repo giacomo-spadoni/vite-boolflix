@@ -2,6 +2,7 @@
 // api key: 0a49dcbac60744c975965cc089b51ddf
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
+import store from './data/store.js';
 
 export default {
   components: {
@@ -11,7 +12,7 @@ export default {
   data() {
     return {};
   },
-  method: {},
+  methods: {},
   mounted() {},
 };
 </script>
