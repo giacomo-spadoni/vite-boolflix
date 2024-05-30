@@ -45,3 +45,22 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+/* scrollbars styles */
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track:hover {
+  background: rgb(71, 71, 71);
+}

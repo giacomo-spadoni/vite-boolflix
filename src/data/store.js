@@ -14,16 +14,18 @@ let store = reactive({
     },
   },
   urlTvSearch:
-    'https://api.themoviedb.org/3/search/tv?include_adult=false&language=en-US&page=1&query=',
+    'https://api.themoviedb.org/3/search/tv?include_adult=false&language=it-IT&page=1&query=',
   urlPopular:
-    'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1',
+    'https://api.themoviedb.org/3/movie/popular?language=it-IT&page=1',
   urlMovieSearch:
-    'https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1&query=',
+    'https://api.themoviedb.org/3/search/movie?include_adult=false&language=it-IT&page=1&query=',
 });
 
 export function PopularMovies() {
   return axios.get(store.urlPopular, store.options).then((response) => {
-    store.popular = response.data.results;
+    store.popular = response.data.results.sort(
+      (a, b) => b.popularity - a.popularity
+    );
     console.log(store.popular);
   });
 }
@@ -32,7 +34,9 @@ export function searchMovies() {
   return axios
     .get(store.urlMovieSearch + store.searched, store.options)
     .then((response) => {
-      store.searchedMovies = response.data.results;
+      store.searchedMovies = response.data.results.sort(
+        (a, b) => b.popularity - a.popularity
+      );
       console.log(store.searchedMovies);
     });
 }
@@ -41,7 +45,9 @@ export function searchTv() {
   return axios
     .get(store.urlTvSearch + store.searched, store.options)
     .then((response) => {
-      store.searchedTv = response.data.results;
+      store.searchedTv = response.data.results.sort(
+        (a, b) => b.popularity - a.popularity
+      );
       console.log(store.searchedTv);
     });
 }

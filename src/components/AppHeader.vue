@@ -21,8 +21,26 @@ export default {
 </script>
 
 <template>
-  <input v-model="search" type="text" />
-  <button @click="searchMovies()">cerca</button>
+  <section>
+    <div class="title">BoolFlix</div>
+    <div>
+      <input v-model="search" type="text" />
+      <button @click="searchMovies()">cerca</button>
+    </div>
+  </section>
 </template>
 
-<style scoped></style>
+<style scoped>
+section {
+  display: flex;
+  justify-content: space-between;
+  width: 1600px;
+  margin: 0 auto;
+}
+
+.title {
+  color: red;
+  font-size: 40px;
+  font-weight: bold;
+}
+</style>
