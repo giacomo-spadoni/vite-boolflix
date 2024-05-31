@@ -10,7 +10,9 @@ export default {
     AppMain,
   },
   data() {
-    return {};
+    return {
+      store,
+    };
   },
   methods: {},
   mounted() {},
@@ -18,8 +20,25 @@ export default {
 </script>
 
 <template>
-  <AppHeader />
-  <AppMain />
+  <div v-show="store.showGlobal" class="global"></div>
+  <div class="container">
+    <AppHeader />
+    <AppMain />
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.global {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.526);
+  z-index: 8;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+}
+</style>

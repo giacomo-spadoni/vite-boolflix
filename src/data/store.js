@@ -8,6 +8,8 @@ let store = reactive({
   popular: [],
   videoId: '',
   youTubeId: '',
+  showGlobal: false,
+  errorVideo: false,
   options: {
     headers: {
       accept: 'application/json',
@@ -55,6 +57,15 @@ export function searchTv() {
 }
 
 export function searchVideo() {
+  // return axios
+  //   .get(
+  //     `https://api.themoviedb.org/3/movie/${store.videoId}/videos?language=en-US`,
+  //     store.options
+  //   )
+  //   .then((response) => {
+  //     console.log(response.data.results[0].key);
+  //     store.youTubeId = `https://www.youtube.com/embed/${response.data.results[0].key}?autoplay=1&mute=1`;
+  //   })
   return axios
     .get(
       `https://api.themoviedb.org/3/movie/${store.videoId}/videos?language=en-US`,
@@ -62,8 +73,18 @@ export function searchVideo() {
     )
     .then((response) => {
       console.log(response.data.results[0].key);
-      store.youTubeId = `https://www.youtube.com/embed/${response.data.results[1].key}?autoplay=1&mute=1`;
+      store.youTubeId = `https://www.youtube.com/embed/${response.data.results[0].key}?autoplay=1&mute=1`;
+    })
+    .catch((error) => {
+      if (error.response) {
+        console.log('Il video richiesto non è stato trovato.');
+        store.errorVideo = true;
+      }
     });
+}
+
+export function clearVideo() {
+  store.youTubeId = '';
 }
 
 export default store;

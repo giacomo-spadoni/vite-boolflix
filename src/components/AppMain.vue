@@ -5,11 +5,11 @@ import Card from './Cards.vue';
 export default {
   components: {
     Card,
-    // Series,
   },
   data() {
     return {
       store,
+      show: false,
     };
   },
   methods: {
