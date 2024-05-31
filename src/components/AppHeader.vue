@@ -23,6 +23,14 @@ export default {
 <template>
   <section>
     <div class="title">BoolFlix</div>
+    <!-- <iframe
+      src="https://www.youtube.com/embed/68xkEZ4-nAs?autoplay=1&mute=1"
+      width="560"
+      height="315"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe> -->
     <div>
       <input v-model="search" type="text" />
       <button @click="searchMovies()">cerca</button>

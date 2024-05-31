@@ -6,6 +6,8 @@ let store = reactive({
   searchedMovies: [],
   searchedTv: [],
   popular: [],
+  videoId: '',
+  youTubeId: '',
   options: {
     headers: {
       accept: 'application/json',
@@ -49,6 +51,18 @@ export function searchTv() {
         (a, b) => b.popularity - a.popularity
       );
       console.log(store.searchedTv);
+    });
+}
+
+export function searchVideo() {
+  return axios
+    .get(
+      `https://api.themoviedb.org/3/movie/${store.videoId}/videos?language=en-US`,
+      store.options
+    )
+    .then((response) => {
+      console.log(response.data.results[0].key);
+      store.youTubeId = `https://www.youtube.com/embed/${response.data.results[1].key}?autoplay=1&mute=1`;
     });
 }
 
