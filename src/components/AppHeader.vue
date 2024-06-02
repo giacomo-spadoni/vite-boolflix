@@ -14,6 +14,7 @@ export default {
       console.log('ur searched movies is: ' + this.store.searched);
       searchMovies();
       searchTv();
+      this.search = '';
     },
   },
   mounted() {},
@@ -23,16 +24,8 @@ export default {
 <template>
   <section>
     <div class="title">BoolFlix</div>
-    <!-- <iframe
-      src="https://www.youtube.com/embed/68xkEZ4-nAs?autoplay=1&mute=1"
-      width="560"
-      height="315"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-    ></iframe> -->
-    <div>
-      <input v-model="search" type="text" />
+    <div class="container">
+      <input @keyup.enter="searchMovies()" v-model="search" type="text" />
       <button @click="searchMovies()">cerca</button>
     </div>
   </section>
@@ -50,5 +43,23 @@ section {
   color: red;
   font-size: 40px;
   font-weight: bold;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+input {
+  display: block;
+  margin-top: 1px;
+  height: 2rem;
+  width: 300px;
+  font-size: 1.5rem;
+}
+
+button {
+  display: block;
+  height: 2.5rem;
 }
 </style>

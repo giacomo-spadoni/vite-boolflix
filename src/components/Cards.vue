@@ -191,22 +191,22 @@ export default {
 
 .buttons-trailer {
   position: absolute;
-  right: 3%;
-  top: 2px;
-  font-size: 20px;
+  right: 1.5%;
+  top: 5px;
+  font-size: 15px;
 }
 
 .close {
   border: 3px solid #4e1c1c;
   background-color: #7e2e2e;
   color: #4e1c1c;
-  width: 30px;
-  height: 25px;
+  width: 25px;
+  height: 20px;
   text-align: center;
   padding-top: 5px;
   border-radius: 50%;
   cursor: pointer;
-  margin-left: 7px;
+  margin-left: 4px;
 }
 
 .close:hover {
@@ -217,8 +217,8 @@ export default {
   border: 3px solid #383b15;
   background-color: #787e2e;
   color: #383b15;
-  width: 30px;
-  height: 25px;
+  width: 25px;
+  height: 20px;
   text-align: center;
   padding-top: 5px;
   border-radius: 50%;
