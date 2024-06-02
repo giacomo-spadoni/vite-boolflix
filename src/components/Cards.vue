@@ -259,6 +259,8 @@ iframe {
 .focus-description {
   width: 48%;
   font-size: 20px;
+  overflow: auto;
+  margin-bottom: 3rem;
 }
 
 .focus-description .bold {
